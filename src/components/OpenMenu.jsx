@@ -21,14 +21,17 @@ export default function OpenMenu() {
       } bg-[#181c1f] h-[100vh] lg:w-[250px] w-[150px]  rounded-xl flex flex-col gap-[20px] lg:p-4 p-2`}
     >
       <li className="flex items-center cursor-pointer gap-2 p-2 text-[gray] hover:text-white">
-        <FaUser />
+        <img
+          className="w-[20px] h-[20px] rounded-[50%]"
+          src={currentUser.photoURL}
+          alt=""
+        />
         <h4 className="lg:text-[14px] text-[11px] font-semibold">
-  View Profile
-  <span className="block lg:text-[12px] text-[8px] font-medium">
-    u/{currentUser?.displayName || "username"}
-  </span>
-</h4>
-
+          View Profile
+          <span className="block lg:text-[12px] text-[8px] font-medium">
+            u/{currentUser?.displayName || "username"}
+          </span>
+        </h4>
       </li>
       <li className="flex items-center cursor-pointer gap-2 text-[gray] hover:text-white">
         <FiSettings />

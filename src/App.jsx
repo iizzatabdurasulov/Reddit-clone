@@ -6,20 +6,21 @@ import Context from "./hooks/Context";
 import "swiper/css";
 import "swiper/css/navigation";
 import SideBar from "./components/SideBar";
-import LogIn from "./components/LogIn";
 import CreatePost from "./pages/CreatePost";
 import { existedPosts } from "./constants/data";
+import PostDetail from "./pages/PostDetail";
+import SignUp from "./components/signUp";
+import LogIn from "./components/LogIn";
 export default function App() {
   const [toggleSidebar, setToggleSidebar] = useState(false);
   const [toggleLogIn, setToggleLogIn] = useState(false);
+  const [toggleSignUp, setToggleSignUp] = useState(false);
   const [currentUser, setCurrentUser] = useState(null);
   const [openUserMenu, setOpenUserMenu] = useState(false);
   const [posts, setNewPosts] = useState(existedPosts);
 
   const handleAddPost = (newAddedPost) => {
     setNewPosts([newAddedPost, ...posts]);
-
-    
   };
 
   useEffect(() => {
@@ -28,7 +29,7 @@ export default function App() {
       setCurrentUser(JSON.parse(storedUser));
     }
   }, []);
-
+  const [state, setState] = "";
   return (
     <div>
       <Context.Provider
@@ -37,6 +38,8 @@ export default function App() {
           setToggleSidebar,
           toggleLogIn,
           setToggleLogIn,
+          toggleSignUp,
+          setToggleSignUp,
           currentUser,
           setCurrentUser,
           openUserMenu,
@@ -48,6 +51,7 @@ export default function App() {
       >
         <Navbar />
         <LogIn />
+        <SignUp/>
         <div className="flex">
           <SideBar />
 
@@ -56,6 +60,7 @@ export default function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/createPost" element={<CreatePost />} />
+              <Route path="/posts/:id" element={<PostDetail />} />
             </Routes>
           </div>
         </div>

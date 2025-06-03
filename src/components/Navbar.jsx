@@ -11,13 +11,15 @@ import { Link, useNavigate } from "react-router-dom";
 import { FaBars, FaSearch } from "react-icons/fa";
 import Context from "../hooks/Context";
 import OpenMenu from "./OpenMenu";
+import LogIn from "./LogIn";
+import SignUp from "./signUp";
+import ResetPassword from "./ResetPassword";
 
 export default function Navbar() {
+  const [authModal, setAuthModal] = useState(false);
   const {
     toggleSidebar,
     setToggleSidebar,
-    toggleLogIn,
-    setToggleLogIn,
     currentUser,
     openUserMenu,
     setOpenUserMenu,
@@ -66,12 +68,12 @@ export default function Navbar() {
             <button className="hidden md:block primary-button">
               <RiAdvertisementLine />
             </button>
-            <button className="lg:text-2xl text-xs lg:font-bold cursor-pointer \\font-medium text-white hover:bg-[#2a3236] lg:p-3 p-[5px] rounded-2xl">
+            <button className="lg:text-2xl text-xs lg:font-bold cursor-pointer font-medium text-white hover:bg-[#2a3236] lg:p-3 p-[5px] rounded-2xl">
               <FaRegCommentDots />
             </button>
             <button
               onClick={handleNavigateToCreatePost}
-              className="flex items-center gap-1 lg:text-2xl text-xs lg:font-bold cursor-pointer \font-medium text-white hover:bg-[#2a3236] lg:p-3 p-[5px] rounded-2xl"
+              className="flex items-center gap-1 lg:text-2xl text-xs lg:font-bold cursor-pointer font-medium text-white hover:bg-[#2a3236] lg:p-3 p-[5px] rounded-2xl"
             >
               <AiOutlinePlus /> Create
             </button>
@@ -99,7 +101,7 @@ export default function Navbar() {
               Get App
             </button>
             <button
-              onClick={() => setToggleLogIn(!toggleLogIn)}
+              onClick={() => setAuthModal("login")}
               className="flex items-center gap-[5px] lg:text-xl text-xs lg:font-bold font-light text-white bg-[#d93900] lg:p-3 p-[5px] px-3 cursor-pointer rounded-2xl"
             >
               Log In
@@ -116,6 +118,9 @@ export default function Navbar() {
           </>
         )}
       </div>
+      <LogIn active={authModal} navigate={setAuthModal} />
+      <SignUp active={authModal} navigate={setAuthModal} />
+      <ResetPassword active={authModal} navigate={setAuthModal} />
     </nav>
   );
 }

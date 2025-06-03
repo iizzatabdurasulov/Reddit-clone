@@ -115,6 +115,9 @@ export const existedPosts = [
     comment: 47,
     like: 19,
     share: 20,
+    followers: '3.4',
+    desc: "Grand Theft Auto Reddits premier GTA community.",
+    createdDate: "Oct 18,2009",
   },
   {
     id: 2,
@@ -126,6 +129,9 @@ export const existedPosts = [
     comment: 47,
     like: 19,
     share: 20,
+    followers: '3.4',
+    desc: "Grand Theft Auto Reddits premier GTA community.",
+    createdDate: "Oct 18,2009",
   },
   {
     id: 3,
@@ -137,6 +143,9 @@ export const existedPosts = [
     comment: 47,
     like: 19,
     share: 20,
+    followers: '3.4',
+    desc: "Grand Theft Auto Reddits premier GTA community.",
+    createdDate: "Oct 18,2009",
   },
 ];
 

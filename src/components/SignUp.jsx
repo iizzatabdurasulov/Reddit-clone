@@ -7,52 +7,49 @@ import appleIcon from "../assets/apple-icon.svg";
 import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { auth } from "../auth/auth";
 
-export default function LogIn({ active, navigate }) {
-  const {
-    toggleLogIn,
-    setToggleLogIn,
-    setToggleSignUp,
-    toggleSignUp,
-    setCurrentUser,
-  } = useContext(Context);
-
+export default function SignUp({ active, navigate }) {
+  const { toggleSignUp, setToggleSignUp, setCurrentUser } = useContext(Context);
   const provider = new GoogleAuthProvider();
 
   const handleGoogleLogin = async () => {
-    const result = await signInWithPopup(auth, provider);
-    const user = result.user;
-    console.log("Google user:", user);
+    try {
+      const result = await signInWithPopup(auth, provider);
+      const user = result.user;
+      console.log("Google user:", user);
 
-    localStorage.setItem(
-      "currentUser",
-      JSON.stringify({
-        uid: user.uid,
-        displayName: user.displayName,
-        email: user.email,
-        photoURL: user.photoURL,
-      })
-    );
+      localStorage.setItem(
+        "currentUser",
+        JSON.stringify({
+          uid: user.uid,
+          displayName: user.displayName,
+          email: user.email,
+          photoURL: user.photoURL,
+        })
+      );
 
-    setCurrentUser(user);
-    setToggleLogIn(false);
+      setCurrentUser(user);
+      setToggleSignUp(false);
+    } catch (error) {
+      console.error("Google login error:", error);
+    }
   };
 
   return (
     <div
       className={`${
-        active === "login" ? "block" : "hidden"
+        active === "sign" ? "block" : "hidden"
       } fixed top-0 left-0 w-full h-[100dvh] bg-[#000000b3] flex items-center justify-center z-[12322]`}
     >
       <div className="relative text-center bg-[#1c1f21] text-white p-6 rounded-lg w-[90%] max-w-md shadow-lg">
         <button
           onClick={() => navigate(false)}
           className="absolute top-4 right-4 text-2xl cursor-pointer text-white"
-          aria-label="Close login modal"
+          aria-label="Close sign up modal"
         >
           <FaXmark />
         </button>
 
-        <h2 className="text-2xl font-semibold mb-2">Log In</h2>
+        <h2 className="text-2xl font-semibold mb-2">Sign Up</h2>
 
         <p className="text-sm text-gray-400 mb-4">
           By continuing, you agree to our{" "}
@@ -96,35 +93,25 @@ export default function LogIn({ active, navigate }) {
         <form className="flex flex-col gap-4 mb-[20px]">
           <input
             type="email"
-            placeholder="Email or username"
-            className="w-full p-3 rounded-lg bg-[#2c3437] text-white border border-gray-600 focus:outline-none focus:border-blue-500"
-          />
-          <input
-            type="password"
-            placeholder="Password"
+            placeholder="Email"
             className="w-full p-3 rounded-lg bg-[#2c3437] text-white border border-gray-600 focus:outline-none focus:border-blue-500"
           />
 
-          <Link
-            onClick={() => navigate('reset')}
-            className="block text-sm mt-[30px] text-blue-400 hover:underline text-left"
-          >
-            Forgot password? 
-          </Link>
           <h5 className="text-sm text-left">
-            New to Reddit? 
+            Already a redditor?{" "}
             <Link
-              onClick={() => navigate("sign")}
-              className="text-blue-400 ml-[3px] hover:underline"
+              onClick={() => close("login")}
+              to="/login"
+              className="text-blue-400 hover:underline"
             >
-               Sign Up
+              Log In
             </Link>
           </h5>
           <button
             type="submit"
             className="w-full mt-[50px] bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-2xl cursor-pointer"
           >
-            Log In
+            Sign Up
           </button>
         </form>
       </div>

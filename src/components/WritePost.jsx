@@ -17,8 +17,9 @@ export default function WritePost({ selectedCommunity }) {
     e.preventDefault();
 
     const newPost = {
+      id: posts.length + 1,
       userName: currentUser?.displayName || "username",
-      avatar: currentUser?.currentUser?.photoURL || "username",
+      avatar: currentUser?.photoURL || "username",
       date: new Date().toLocaleDateString(),
       post: title,
       like: 0,
