@@ -42,10 +42,7 @@ export default function PostItem({ item }) {
   };
 
   return (
-    <div
-      onClick={handleGoToPostDetail}
-      className="p-3 rounded-2xl cursor-pointer hover:bg-[#2a3236] mb-5"
-    >
+    <div className="p-3 rounded-2xl cursor-pointer hover:bg-[#2a3236] mb-5">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-1">
           <img
@@ -53,7 +50,12 @@ export default function PostItem({ item }) {
             src={item.avatar}
             alt={`${item.userName}'s avatar`}
           />
-          <h5 className="text-white font-semibold text-xs">{item.userName}</h5>
+          <h5
+          
+            className="text-white font-semibold text-xs"
+          >
+            {item.userName}
+          </h5>
           <span className="text-white font-semibold text-xs ml-2.5">
             {item.date}
           </span>
@@ -63,7 +65,7 @@ export default function PostItem({ item }) {
         </button>
       </div>
 
-      <h2 className="text-white lg:text-2xl text-sm font-bold my-2.5">
+      <h2   onClick={handleGoToPostDetail} className="text-white lg:text-2xl text-sm font-bold my-2.5">
         {item.post}
       </h2>
       {item.postImage && (

@@ -11,6 +11,8 @@ import { existedPosts } from "./constants/data";
 import PostDetail from "./pages/PostDetail";
 import SignUp from "./components/signUp";
 import LogIn from "./components/LogIn";
+import ScrollToTop from "./utilits/ScrollTop";
+import Popular from "./pages/Popular";
 export default function App() {
   const [toggleSidebar, setToggleSidebar] = useState(false);
   const [toggleLogIn, setToggleLogIn] = useState(false);
@@ -29,7 +31,6 @@ export default function App() {
       setCurrentUser(JSON.parse(storedUser));
     }
   }, []);
-  const [state, setState] = "";
   return (
     <div>
       <Context.Provider
@@ -49,9 +50,10 @@ export default function App() {
           handleAddPost,
         }}
       >
+        <ScrollToTop />
         <Navbar />
         <LogIn />
-        <SignUp/>
+        <SignUp />
         <div className="flex">
           <SideBar />
 
@@ -61,6 +63,7 @@ export default function App() {
               <Route path="/" element={<Home />} />
               <Route path="/createPost" element={<CreatePost />} />
               <Route path="/posts/:id" element={<PostDetail />} />
+              <Route path="/popular" element={<Popular />} />
             </Routes>
           </div>
         </div>

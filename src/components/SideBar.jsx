@@ -4,11 +4,23 @@ import { BiHome } from "react-icons/bi";
 import { FaAngleDown } from "react-icons/fa";
 import { sidebarData } from "../constants/data";
 import Context from "../hooks/Context";
+import { useNavigate } from "react-router-dom";
 
 export default function SideBar() {
   const [openTopics, setOpenTopics] = useState(false);
   const [openResources, setOpenResources] = useState(false);
   const { toggleSidebar, setToggleSidebar } = useContext(Context);
+  const [activeMenu, setActiveMenu] = useState("home");
+  const navigate = useNavigate();
+
+  const handleGoToHome = () => {
+    setActiveMenu("home");
+    navigate("/");
+  };
+  const handleGoToPopular = () => {
+    setActiveMenu("popular");
+    navigate("/popular");
+  };
 
   useEffect(() => {
     if (toggleSidebar) {
@@ -25,17 +37,27 @@ export default function SideBar() {
   return (
     <aside
       className={`
-       custom-scrollbar lg:p-[24px] p-[12px] mt-[50px] h-[100vh] w-[45%] xl:w-[20%]
+       custom-scrollbar lg:p-[24px] p-[12px] mt-[60px] h-[100vh] w-[45%] xl:w-[20%]
     flex flex-col gap-3 border-r-2 border-[#373a3b] bg-[#0e1113]
     transition-transform duration-300 fixed top-[0px] left-0 z-50 
     ${toggleSidebar ? "translate-x-0" : "-translate-x-full"} xl:translate-x-0
     ${openTopics || openResources ? "overflow-y-auto" : ""}
   `}
     >
-      <h3 className="lg:text-2xl text-[16px] text-white font-bold flex lg:gap-2  gap-1 items-center hover:bg-[#2a3236] lg:p-[24px] p-[12px] rounded-2xl">
+      <h3
+        onClick={handleGoToHome}
+        className={`${
+          activeMenu === "home" ? "bg-[#2a3236]" : "hover:bg-[#2a3236]"
+        } cursor-pointer lg:text-2xl text-[16px] text-white font-bold flex lg:gap-2 gap-1 items-center lg:p-[24px] p-[12px] rounded-2xl`}
+      >
         <BiHome /> Home
       </h3>
-      <h3 className="lg:text-2xl text-[16px] text-white font-bold flex lg:gap-2  gap-1 items-center hover:bg-[#2a3236] lg:p-[24px] p-[12px] rounded-2xl">
+      <h3
+        onClick={handleGoToPopular}
+        className={`${
+          activeMenu === "popular" ? "bg-[#2a3236]" : "hover:bg-[#2a3236]"
+        } cursor-pointer lg:text-2xl text-[16px] text-white font-bold flex lg:gap-2 gap-1 items-center lg:p-[24px] p-[12px] rounded-2xl`}
+      >
         <BsFillArrowDownLeftCircleFill />
         Popular
       </h3>

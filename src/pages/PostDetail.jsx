@@ -19,7 +19,7 @@ export default function PostDetail() {
       <div className="w-[30%] bg-[#04090a] py-[30px] px-[15px] rounded-xl">
         <div className="flex justify-between items-center">
           <h2 className="text-[grey] lg:text-2xl text-xs font-bold">
-            {post.userName} 
+            {post.userName}
           </h2>
           <button
             className={`p-2 rounded-2xl text-white text-xs font-semibold   ${
@@ -29,7 +29,7 @@ export default function PostDetail() {
             }`}
             onClick={() => setJoin(!join)}
           >
-            {join ? "Joined" : "Join"} 
+            {join ? "Joined" : "Join"}
           </button>
         </div>
         <div className="flex justify-between items-center mt-[20px]">
