@@ -16,7 +16,7 @@ export default function PopularCommunities() {
               return (
                 <li className="flex cursor-pointer gap-2 items-center" key={item?.id}>
                   <img
-                    className="w-[20px] h-[20px] "
+                    className="w-[30px] h-[30px] flex items-center justify-center rounded-[50%] "
                     src={item?.avatar}
                     alt=""
                   />

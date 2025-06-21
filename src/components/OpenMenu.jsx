@@ -1,3 +1,4 @@
+import { BiSun } from "react-icons/bi";
 import { IoIosLogOut } from "react-icons/io";
 import { FiSettings } from "react-icons/fi";
 import React, { useContext } from "react";
@@ -6,8 +7,14 @@ import { FaUser } from "react-icons/fa6";
 import { auth } from "../auth/auth";
 
 export default function OpenMenu() {
-  const { openUserMenu, setOpenUserMenu, currentUser, setCurrentUser } =
-    useContext(Context);
+  const {
+    openUserMenu,
+    setOpenUserMenu,
+    mode,
+    setMode,
+    currentUser,
+    setCurrentUser,
+  } = useContext(Context);
   const handleLogout = () => {
     auth.signOut().then(() => {
       localStorage.removeItem("currentUser");
@@ -43,6 +50,15 @@ export default function OpenMenu() {
       >
         <IoIosLogOut />
         <h4 className=" lg:text-[14px] text-[11px] font-semibold">Log Out</h4>
+      </li>
+      <li
+        onClick={() => setMode(mode === "dark" ? "light" : "dark")}
+        className="flex items-center cursor-pointer gap-2 p-2 text-[gray] hover:text-white"
+      >
+        <BiSun />
+        <h4 className="lg:text-[14px] text-[11px] font-semibold">
+          {mode === "dark" ? "Light Mode" : "Dark Mode"}
+        </h4>
       </li>
     </ul>
   );

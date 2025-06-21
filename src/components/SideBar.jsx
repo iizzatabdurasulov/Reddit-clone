@@ -37,7 +37,7 @@ export default function SideBar() {
   return (
     <aside
       className={`
-       custom-scrollbar lg:p-[24px] p-[12px] mt-[60px] h-[100vh] w-[45%] xl:w-[20%]
+       custom-scrollbar lg:p-[24px] px-[12px] mt-[60px] h-[100dvh] w-[45%] xl:w-[20%]
     flex flex-col gap-3 border-r-2 border-[#373a3b] bg-[#0e1113]
     transition-transform duration-300 fixed top-[0px] left-0 z-50 
     ${toggleSidebar ? "translate-x-0" : "-translate-x-full"} xl:translate-x-0

@@ -4,7 +4,7 @@ export default function CarouselItem({ item }) {
   return (
     <div
       style={{ backgroundImage: `url(${item.image})` }}
-      className="rounded-2xl p-4  bg-cover bg-center flex flex-col justify-end lg:w-[280px] lg:h-[210px] sm:w-[230px]   sm:h-[160px] w-[180px] h-[110px] cursor-pointer"
+      className="rounded-2xl p-4  bg-opacity-[30%]  bg-cover bg-center flex flex-col justify-end lg:w-[280px] lg:h-[210px] sm:w-[230px]   sm:h-[160px] w-[180px] h-[110px] cursor-pointer"
     >
       <h3 className="text-white font-bold text-[11px] sm:text-[18px] lg:text-[20px]">
         {item.title}

@@ -42,7 +42,10 @@ export default function PostItem({ item }) {
   };
 
   return (
-    <div className="p-3 rounded-2xl cursor-pointer hover:bg-[#2a3236] mb-5">
+    <div
+      onClick={handleGoToPostDetail}
+      className="p-3 rounded-2xl cursor-pointer hover:bg-[#2a3236] mb-5"
+    >
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-1">
           <img
@@ -50,12 +53,7 @@ export default function PostItem({ item }) {
             src={item.avatar}
             alt={`${item.userName}'s avatar`}
           />
-          <h5
-          
-            className="text-white font-semibold text-xs"
-          >
-            {item.userName}
-          </h5>
+          <h5 className="text-white font-semibold text-xs">{item.userName}</h5>
           <span className="text-white font-semibold text-xs ml-2.5">
             {item.date}
           </span>
@@ -65,14 +63,14 @@ export default function PostItem({ item }) {
         </button>
       </div>
 
-      <h2   onClick={handleGoToPostDetail} className="text-white lg:text-2xl text-sm font-bold my-2.5">
+      <h2 className="text-white lg:text-2xl text-sm font-bold my-2.5">
         {item.post}
       </h2>
       {item.postImage && (
         <img
           className="w-full rounded-lg"
           src={item.postImage}
-          alt="Post content"
+          alt={item.postImageAlt || "Post image"}
         />
       )}
 
@@ -101,16 +99,19 @@ export default function PostItem({ item }) {
           </button>
         </div>
 
-        <button className="flex gap-1 items-center justify-center text-xl text-white bg-[#3e4a50] rounded-2xl p-1 hover:opacity-50">
+        <button
+          onClick={handleGoToPostDetail}
+          className="flex gap-1 cursor-pointer items-center justify-center text-xl text-white bg-[#3e4a50] rounded-2xl p-1 hover:opacity-50"
+        >
           <FaRegComment />
           <span className="text-xl font-bold">{item.comment}</span>
         </button>
 
-        <button className="flex gap-1 items-center justify-center text-xl text-white bg-[#3e4a50] rounded-2xl p-1 hover:opacity-50">
+        <button className="flex cursor-pointer gap-1 items-center justify-center text-xl text-white bg-[#3e4a50] rounded-2xl p-1 hover:opacity-50">
           <BiAward />
         </button>
 
-        <button className="flex gap-1 items-center justify-center text-xl text-white bg-[#3e4a50] rounded-2xl p-1 hover:opacity-50">
+        <button className="flex cursor-pointer gap-1 items-center justify-center text-xl text-white bg-[#3e4a50] rounded-2xl p-1 hover:opacity-50">
           <BiShare />
           <span className="text-xl font-bold">{item.share}</span>
         </button>
