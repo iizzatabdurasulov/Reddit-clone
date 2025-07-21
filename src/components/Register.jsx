@@ -17,16 +17,6 @@ export default function Register({ active, navigate }) {
       const user = result.user;
       console.log("Google user:", user);
 
-      localStorage.setItem(
-        "currentUser",
-        JSON.stringify({
-          uid: user.uid,
-          displayName: user.displayName,
-          email: user.email,
-          photoURL: user.photoURL,
-        })
-      );
-
       setCurrentUser(user);
       setToggleSignUp(false);
     } catch (error) {
