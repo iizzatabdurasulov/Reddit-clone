@@ -15,4 +15,4 @@ This is a basic Reddit clone built using React and Firebase. Users can:
 
 ## Live Demo
 
-👉 [Check it out on Vercel](https://reddit-clone-one-peach.vercel.app/)
+👉 [Check it out on Vercel](https://reddit-clone-one-kappa.vercel.app/)
