@@ -7,7 +7,7 @@ import appleIcon from "../assets/apple-icon.svg";
 import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { auth } from "../auth/auth";
 
-export default function SignUp({ active, navigate }) {
+export default function Register({ active, navigate }) {
   const { toggleSignUp, setToggleSignUp, setCurrentUser } = useContext(Context);
   const provider = new GoogleAuthProvider();
 

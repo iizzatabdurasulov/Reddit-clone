@@ -1,7 +1,4 @@
-import {
-  BiUserCircle,
-  BiDotsHorizontalRounded
-} from "react-icons/bi";
+import { BiUserCircle, BiDotsHorizontalRounded } from "react-icons/bi";
 import { IoMdNotificationsOutline } from "react-icons/io";
 import { AiOutlinePlus } from "react-icons/ai";
 import { FaRegCommentDots, FaBars, FaSearch } from "react-icons/fa";
@@ -13,8 +10,8 @@ import { Link, useNavigate } from "react-router-dom";
 import Context from "../hooks/Context";
 import OpenMenu from "./OpenMenu";
 import LogIn from "./LogIn";
-import SignUp from "./signUp";
 import ResetPassword from "./ResetPassword";
+import Register from "./Register";
 
 export default function Navbar() {
   const [authModal, setAuthModal] = useState(false);
@@ -128,7 +125,7 @@ export default function Navbar() {
       </div>
 
       <LogIn active={authModal} navigate={setAuthModal} />
-      <SignUp active={authModal} navigate={setAuthModal} />
+      <Register active={authModal} navigate={setAuthModal} />
       <ResetPassword active={authModal} navigate={setAuthModal} />
     </nav>
   );
