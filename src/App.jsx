@@ -5,10 +5,10 @@ import { ContextProvider } from "./hooks/Context";
 import "swiper/css";
 import "swiper/css/navigation";
 import SideBar from "./components/SideBar";
-import SignUp from "./components/signUp";
 import LogIn from "./components/LogIn";
 import ScrollToTop from "./utilits/ScrollTop";
 import Routers from "./routes/Routers";
+import SignUp from "./components/signUp";
 
 export default function App() {
 
