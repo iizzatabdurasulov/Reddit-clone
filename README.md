@@ -10,10 +10,9 @@ This is a basic Reddit clone built using React and Firebase. Users can:
 
 - ⚛️ React
 - 🔥 Firebase Authentication & Firestore
-- 🧠 Context API or Redux (depending on what you used)
+- 🧠 UseContext 
 - 🎨 TailwindCSS / Bootstrap (if used)
 
 ## Live Demo
 
-👉 [Check it out on Vercel]([https://your-vercel-link.vercel.app](https://reddit-clone-one-peach.vercel.app/))
-
+👉 [Check it out on Vercel](https://reddit-clone-one-peach.vercel.app/)
