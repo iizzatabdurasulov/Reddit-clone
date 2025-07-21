@@ -66,13 +66,13 @@ export default function PostItem({ item }) {
       <h2 className="text-white lg:text-2xl text-sm font-bold my-2.5">
         {item.post}
       </h2>
-      {item.postImage && (
-        <img
-          className="w-full rounded-lg"
-          src={item.postImage}
-          alt={item.postImageAlt || "Post image"}
-        />
-      )}
+      {item.postImage?.trim() !== "" && (
+  <img
+    className="w-full rounded-lg"
+    src={item.postImage}
+    alt={item.postImageAlt || "Post image"}
+  />
+)}
 
       <div className="flex gap-3 mt-5">
         <div

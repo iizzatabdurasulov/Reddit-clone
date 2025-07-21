@@ -32,7 +32,7 @@ export default function LogIn({ active, navigate }) {
         photoURL: user.photoURL,
       })
     );
-
+      navigate(null); 
     setCurrentUser(user);
     setToggleLogIn(false);
   };
